@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rafael Karkara | Personal Trainer</title>
+<meta name="description" content="Rafael Karkara - Personal Trainer. Treinos personalizados, resultados reais.">
+<style>
+  :root{
+    --black:#0a0a0a;
+    --black-soft:#141414;
+    --red:#e10600;
+    --red-dark:#a30500;
+    --white:#f5f5f5;
+    --gray:#8a8a8a;
+    --transition:.3s ease;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Segoe UI', Arial, sans-serif;
+    background:var(--black);
+    color:var(--white);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  img{max-width:100%;display:block;}
+
+  a{text-decoration:none;color:inherit;}
+
+  ul{list-style:none;}
+
+  .container{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  section{padding:100px 0;}
+
+  h1,h2,h3{font-family:'Segoe UI', Arial, sans-serif;}
+
+  .section-title{
+    font-size:2.4rem;
+    text-align:center;
+    margin-bottom:16px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+  }
+
+  .section-title span{color:var(--red);}
+
+  .section-subtitle{
+    text-align:center;
+    color:var(--gray);
+    max-width:600px;
+    margin:0 auto 60px;
+    font-size:1.05rem;
+  }
+
+  .btn{
+    display:inline-block;
+    padding:16px 40px;
+    background:var(--red);
+    color:var(--white);
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    border-radius:4px;
+    border:2px solid var(--red);
+    cursor:pointer;
+    transition:var(--transition);
+    font-size:.95rem;
+  }
+
+  .btn:hover{
+    background:transparent;
+    color:var(--red);
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(225,6,0,.3);
+  }
+
+  .btn-outline{
+    background:transparent;
+    color:var(--white);
+    border:2px solid var(--white);
+  }
+
+  .btn-outline:hover{
+    background:var(--white);
+    color:var(--black);
+    box-shadow:0 10px 25px rgba(255,255,255,.15);
+  }
+
+  /* ===== HEADER ===== */
+  header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(10,10,10,.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(225,6,0,.15);
+    transition:var(--transition);
+  }
+
+  nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 24px;
+    max-width:1200px;
+    margin:0 auto;
+  }
+
+  .logo{
+    font-size:1.5rem;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+  }
+
+  .logo span{color:var(--red);}
+
+  .nav-links{
+    display:flex;
+    gap:36px;
+  }
+
+  .nav-links a{
+    font-weight:600;
+    text-transform:uppercase;
+    font-size:.85rem;
+    letter-spacing:1px;
+    position:relative;
+    padding:6px 0;
+    transition:var(--transition);
+  }
+
+  .nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:0;
+    height:2px;
+    background:var(--red);
+    transition:var(--transition);
+  }
+
+  .nav-links a:hover{color:var(--red);}
+  .nav-links a:hover::after{width:100%;}
+
+  .menu-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+    background:none;
+    border:none;
+    z-index:1100;
+  }
+
+  .menu-toggle span{
+    width:28px;
+    height:3px;
+    background:var(--white);
+    transition:var(--transition);
+  }
+
+  .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(6px,6px);}
+  .menu-toggle.active span:nth-child(2){opacity:0;}
+  .menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px);}
+
+  /* ===== HERO ===== */
+  .hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    background:
+      linear-gradient(180deg, rgba(10,10,10,.4) 0%, rgba(10,10,10,.95) 100%),
+      radial-gradient(circle at 50% 30%, rgba(225,6,0,.15), transparent 60%);
+    padding-top:80px;
+    overflow:hidden;
+  }
+
+  .hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+      repeating-linear-gradient(45deg, rgba(225,6,0,.03) 0px, rgba(225,6,0,.03) 2px, transparent 2px, transparent 40px);
+    pointer-events:none;
+  }
+
+  .hero-content{
+    max-width:800px;
+    padding:0 24px;
+    position:relative;
+    z-index:2;
+  }
+
+  .hero-tag{
+    display:inline-block;
+    color:var(--red);
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-size:.85rem;
+    margin-bottom:24px;
+    border:1px solid var(--red);
+    padding:8px 20px;
+    border-radius:30px;
+  }
+
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 4.5rem);
+    font-weight:800;
+    line-height:1.15;
+    text-transform:uppercase;
+    margin-bottom:24px;
+  }
+
+  .hero h1 span{color:var(--red);}
+
+  .hero p{
+    font-size:1.2rem;
+    color:var(--gray);
+    max-width:600px;
+    margin:0 auto 40px;
+  }
+
+  .hero-buttons{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+  .scroll-indicator{
+    position:absolute;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+    width:26px;
+    height:42px;
+    border:2px solid var(--gray);
+    border-radius:15px;
+    z-index:2;
+  }
+
+  .scroll-indicator::before{
+    content:'';
+    position:absolute;
+    top:8px;
+    left:50%;
+    width:4px;
+    height:8px;
+    background:var(--red);
+    border-radius:2px;
+    transform:translateX(-50%);
+    animation:scrollDown 1.6s infinite;
+  }
+
+  @keyframes scrollDown{
+    0%{opacity:1; top:8px;}
+    100%{opacity:0; top:22px;}
+  }
+
+  /* ===== REVEAL ANIMATION ===== */
+  .reveal{
+    opacity:0;
+    transform:translateY(50px);
+    transition:opacity .8s ease, transform .8s ease;
+  }
+
+  .reveal.active{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  .reveal-left{
+    opacity:0;
+    transform:translateX(-60px);
+    transition:opacity .8s ease, transform .8s ease;
+  }
+  .reveal-left.active{opacity:1; transform:translateX(0);}
+
+  .reveal-right{
+    opacity:0;
+    transform:translateX(60px);
+    transition:opacity .8s ease, transform .8s ease;
+  }
+  .reveal-right.active{opacity:1; transform:translateX(0);}
+
+  /* ===== SOBRE ===== */
+  .about{background:var(--black-soft);}
+
+  .about-grid{
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+    gap:60px;
+    align-items:center;
+  }
+
+  .about-img-wrap{
+    position:relative;
+  }
+
+  .about-img-wrap::before{
+    content:'';
+    position:absolute;
+    top:-20px;
+    left:-20px;
+    width:100%;
+    height:100%;
+    border:3px solid var(--red);
+    border-radius:12px;
+    z-index:0;
+  }
+
+  .about-img{
+    width:100%;
+    height:480px;
+    object-fit:cover;
+    border-radius:12px;
+    position:relative;
+    z-index:1;
+  }
+
+  .about-img-placeholder{
+    background:
+      radial-gradient(circle at 30% 20%, rgba(225,6,0,.35), transparent 55%),
+      linear-gradient(160deg, #1c1c1c 0%, #0a0a0a 70%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(255,255,255,.06);
+  }
+
+  .about-img-placeholder span{
+    font-size:6rem;
+    font-weight:800;
+    letter-spacing:4px;
+    color:transparent;
+    -webkit-text-stroke:2px var(--red);
+    text-stroke:2px var(--red);
+  }
+
+  .about-text h2{
+    font-size:2.2rem;
+    text-transform:uppercase;
+    margin-bottom:20px;
+  }
+
+  .about-text h2 span{color:var(--red);}
+
+  .about-text p{
+    color:var(--gray);
+    margin-bottom:20px;
+    font-size:1.05rem;
+  }
+
+  .about-stats{
+    display:flex;
+    gap:40px;
+    margin-top:30px;
+    flex-wrap:wrap;
+  }
+
+  .stat h3{
+    font-size:2.2rem;
+    color:var(--red);
+    font-weight:800;
+  }
+
+  .stat p{
+    color:var(--gray);
+    font-size:.9rem;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin:0;
+  }
+
+  /* ===== SERVICOS ===== */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:32px;
+  }
+
+  .service-card{
+    background:var(--black-soft);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:14px;
+    padding:44px 32px;
+    text-align:center;
+    transition:var(--transition);
+    position:relative;
+    overflow:hidden;
+  }
+
+  .service-card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:4px;
+    background:var(--red);
+    transform:scaleX(0);
+    transition:transform .4s ease;
+    transform-origin:left;
+  }
+
+  .service-card:hover::before{transform:scaleX(1);}
+
+  .service-card:hover{
+    transform:translateY(-12px);
+    border-color:rgba(225,6,0,.4);
+    box-shadow:0 20px 40px rgba(0,0,0,.4);
+  }
+
+  .service-icon{
+    width:70px;
+    height:70px;
+    margin:0 auto 24px;
+    background:rgba(225,6,0,.12);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:2rem;
+    color:var(--red);
+  }
+
+  .service-card h3{
+    font-size:1.4rem;
+    text-transform:uppercase;
+    margin-bottom:16px;
+  }
+
+  .service-card p{
+    color:var(--gray);
+    margin-bottom:24px;
+  }
+
+  .service-list{
+    text-align:left;
+    margin-bottom:24px;
+  }
+
+  .service-list li{
+    color:var(--gray);
+    padding:6px 0;
+    font-size:.92rem;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+
+  .service-list li::before{
+    content:'✓';
+    color:var(--red);
+    font-weight:800;
+  }
+
+  /* ===== RESULTADOS ===== */
+  .results{background:var(--black-soft);}
+
+  .testimonials-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:32px;
+  }
+
+  .testimonial-card{
+    background:var(--black);
+    border-radius:14px;
+    padding:36px 30px;
+    border:1px solid rgba(255,255,255,.06);
+    transition:var(--transition);
+  }
+
+  .testimonial-card:hover{
+    border-color:rgba(225,6,0,.4);
+    transform:translateY(-8px);
+  }
+
+  .stars{color:var(--red); margin-bottom:16px; font-size:1.1rem;}
+
+  .testimonial-text{
+    color:var(--gray);
+    font-style:italic;
+    margin-bottom:24px;
+  }
+
+  .testimonial-author{
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+
+  .author-avatar{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:var(--red);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    color:var(--white);
+    flex-shrink:0;
+  }
+
+  .author-info h4{font-size:1rem;}
+  .author-info span{color:var(--gray); font-size:.85rem;}
+
+  /* ===== CONTATO ===== */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+  }
+
+  .contact-info h2{
+    font-size:2.2rem;
+    text-transform:uppercase;
+    margin-bottom:20px;
+  }
+
+  .contact-info h2 span{color:var(--red);}
+
+  .contact-info > p{
+    color:var(--gray);
+    margin-bottom:36px;
+  }
+
+  .contact-item{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-bottom:28px;
+  }
+
+  .contact-icon{
+    width:50px;
+    height:50px;
+    background:rgba(225,6,0,.12);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--red);
+    font-size:1.3rem;
+    flex-shrink:0;
+  }
+
+  .contact-item h4{font-size:1rem; margin-bottom:2px;}
+  .contact-item p, .contact-item a{color:var(--gray); font-size:.92rem;}
+
+  .whatsapp-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    background:#25D366;
+    color:#fff;
+    padding:16px 32px;
+    border-radius:50px;
+    font-weight:700;
+    margin-top:10px;
+    transition:var(--transition);
+  }
+
+  .whatsapp-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(37,211,102,.35);
+  }
+
+  .contact-form{
+    background:var(--black-soft);
+    padding:40px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.06);
+  }
+
+  .form-group{margin-bottom:22px;}
+
+  .form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-size:.85rem;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--gray);
+  }
+
+  .form-group input,
+  .form-group textarea{
+    width:100%;
+    padding:14px 16px;
+    background:var(--black);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:8px;
+    color:var(--white);
+    font-family:inherit;
+    font-size:1rem;
+    transition:var(--transition);
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus{
+    outline:none;
+    border-color:var(--red);
+    box-shadow:0 0 0 3px rgba(225,6,0,.15);
+  }
+
+  .form-group textarea{resize:vertical; min-height:120px;}
+
+  .contact-form .btn{width:100%; border-radius:8px;}
+
+  .form-success{
+    display:none;
+    background:rgba(37,211,102,.12);
+    border:1px solid #25D366;
+    color:#25D366;
+    padding:14px;
+    border-radius:8px;
+    margin-top:16px;
+    text-align:center;
+    font-size:.9rem;
+  }
+
+  .form-success.show{display:block;}
+
+  /* ===== FOOTER ===== */
+  footer{
+    background:var(--black-soft);
+    border-top:1px solid rgba(225,6,0,.15);
+    padding:60px 0 24px;
+  }
+
+  .footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:40px;
+    margin-bottom:40px;
+  }
+
+  .footer-logo{
+    font-size:1.6rem;
+    font-weight:800;
+    text-transform:uppercase;
+    margin-bottom:16px;
+  }
+
+  .footer-logo span{color:var(--red);}
+
+  .footer-col p{color:var(--gray); font-size:.92rem;}
+
+  .footer-col h4{
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:20px;
+    font-size:1rem;
+  }
+
+  .footer-col ul li{margin-bottom:12px;}
+
+  .footer-col ul li a{
+    color:var(--gray);
+    font-size:.92rem;
+    transition:var(--transition);
+  }
+
+  .footer-col ul li a:hover{color:var(--red);}
+
+  .social-links{
+    display:flex;
+    gap:14px;
+  }
+
+  .social-links a{
+    width:44px;
+    height:44px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.1rem;
+    transition:var(--transition);
+  }
+
+  .social-links a:hover{
+    background:var(--red);
+    border-color:var(--red);
+    transform:translateY(-4px);
+  }
+
+  .footer-bottom{
+    text-align:center;
+    padding-top:24px;
+    border-top:1px solid rgba(255,255,255,.08);
+    color:var(--gray);
+    font-size:.85rem;
+  }
+
+  .footer-bottom span{color:var(--red);}
+
+  /* ===== WHATSAPP FLOAT ===== */
+  .whatsapp-float{
+    position:fixed;
+    bottom:28px;
+    right:28px;
+    width:60px;
+    height:60px;
+    background:#25D366;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.8rem;
+    z-index:999;
+    box-shadow:0 6px 20px rgba(0,0,0,.4);
+    transition:var(--transition);
+    animation:pulse 2.4s infinite;
+  }
+
+  .whatsapp-float:hover{transform:scale(1.1);}
+
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(37,211,102,.5);}
+    70%{box-shadow:0 0 0 16px rgba(37,211,102,0);}
+    100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:900px){
+    .about-grid, .contact-grid{grid-template-columns:1fr;}
+    .services-grid, .testimonials-grid{grid-template-columns:1fr 1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .about-img{height:380px;}
+  }
+
+  @media (max-width:768px){
+    .menu-toggle{display:flex;}
+
+    .nav-links{
+      position:fixed;
+      top:0;
+      right:-100%;
+      width:70%;
+      max-width:320px;
+      height:100vh;
+      background:var(--black-soft);
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      gap:40px;
+      transition:right .4s ease;
+      box-shadow:-10px 0 30px rgba(0,0,0,.5);
+    }
+
+    .nav-links.active{right:0;}
+
+    .services-grid, .testimonials-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    section{padding:70px 0;}
+    .about-img-wrap::before{display:none;}
+    .about-img{height:320px;}
+  }
+
+  @media (max-width:480px){
+    .hero-buttons{flex-direction:column; width:100%;}
+    .hero-buttons .btn{width:100%;}
+    .contact-form{padding:26px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <nav>
+    <a href="#hero" class="logo">RAFAEL<span>KARKARA</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero">Início</a></li>
+      <li><a href="#about">Sobre</a></li>
+      <li><a href="#services">Serviços</a></li>
+      <li><a href="#results">Resultados</a></li>
+      <li><a href="#contact">Contato</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <span class="hero-tag">Personal Trainer</span>
+    <h1>Transforme seu corpo. <span>Supere</span> seus limites.</h1>
+    <p>Treinos 100% personalizados para você alcançar resultados reais, com acompanhamento próximo e método comprovado.</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn">Agende sua Avaliação</a>
+      <a href="#services" class="btn btn-outline">Conheça os Treinos</a>
+    </div>
+  </div>
+  <div class="scroll-indicator"></div>
+</section>
+
+<!-- ===== SOBRE ===== -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-img-wrap reveal-left">
+      <div class="about-img about-img-placeholder" role="img" aria-label="Foto de Rafael Karkara, personal trainer">
+        <span>RK</span>
+      </div>
+    </div>
+    <div class="about-text reveal-right">
+      <h2>Sobre <span>Mim</span></h2>
+      <p>Sou Rafael Karkara, personal trainer há mais de 10 anos, especialista em hipertrofia, emagrecimento e condicionamento físico. Já ajudei mais de 500 alunos a transformarem seus corpos e suas vidas através do treinamento físico.</p>
+      <p>Minha missão é simples: entender seu objetivo, montar um plano sob medida e caminhar ao seu lado até você chegar lá. Sem fórmulas prontas, sem enrolação — só método, disciplina e resultado.</p>
+      <div class="about-stats">
+        <div class="stat">
+          <h3>10+</h3>
+          <p>Anos de Experiência</p>
+        </div>
+        <div class="stat">
+          <h3>500+</h3>
+          <p>Alunos Transformados</p>
+        </div>
+        <div class="stat">
+          <h3>98%</h3>
+          <p>Taxa de Satisfação</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVIÇOS ===== -->
+<section class="services" id="services">
+  <div class="container">
+    <h2 class="section-title reveal">Meus <span>Serviços</span></h2>
+    <p class="section-subtitle reveal">Planos de treino desenvolvidos sob medida para cada objetivo e nível de condicionamento.</p>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">💪</div>
+        <h3>Hipertrofia</h3>
+        <p>Ganho de massa muscular com treinos progressivos e periodizados.</p>
+        <ul class="service-list">
+          <li>Avaliação física completa</li>
+          <li>Treino individualizado</li>
+          <li>Ajustes semanais de carga</li>
+        </ul>
+        <a href="#contact" class="btn">Saiba Mais</a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🔥</div>
+        <h3>Emagrecimento</h3>
+        <p>Treinos de alta intensidade combinados com orientação nutricional básica.</p>
+        <ul class="service-list">
+          <li>Treinos metabólicos</li>
+          <li>Acompanhamento semanal</li>
+          <li>Metas de curto prazo</li>
+        </ul>
+        <a href="#contact" class="btn">Saiba Mais</a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">⚡</div>
+        <h3>Condicionamento</h3>
+        <p>Melhora de performance, resistência e saúde geral para o dia a dia.</p>
+        <ul class="service-list">
+          <li>Treinos funcionais</li>
+          <li>Foco em mobilidade</li>
+          <li>Prevenção de lesões</li>
+        </ul>
+        <a href="#contact" class="btn">Saiba Mais</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESULTADOS ===== -->
+<section class="results" id="results">
+  <div class="container">
+    <h2 class="section-title reveal">Nossos <span>Resultados</span></h2>
+    <p class="section-subtitle reveal">O que meus alunos dizem sobre a jornada de transformação.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Em 6 meses perdi 15kg e ganhei uma disposição que não tinha há anos. O Rafael entende de verdade o que faz."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">M</div>
+          <div class="author-info">
+            <h4>Marina Souza</h4>
+            <span>Aluna há 8 meses</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Treino com o Rafael há 2 anos e os resultados de hipertrofia foram muito além do que eu esperava."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">L</div>
+          <div class="author-info">
+            <h4>Lucas Almeida</h4>
+            <span>Aluno há 2 anos</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Profissional extremamente atencioso e dedicado. Meu condicionamento físico melhorou muito em poucos meses."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">C</div>
+          <div class="author-info">
+            <h4>Carla Mendes</h4>
+            <span>Aluna há 1 ano</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTATO ===== -->
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-info reveal-left">
+      <h2>Vamos <span>Treinar</span>?</h2>
+      <p>Entre em contato e dê o primeiro passo para a sua transformação.</p>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <h4>Localização</h4>
+          <p>São Paulo, SP</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <h4>E-mail</h4>
+          <p>contato@rafaelkarkara.com</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <h4>Telefone</h4>
+          <p>(11) 99999-9999</p>
+        </div>
+      </div>
+      <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" class="whatsapp-btn">
+        📲 Falar no WhatsApp
+      </a>
+    </div>
+    <form class="contact-form reveal-right" id="contactForm">
+      <div class="form-group">
+        <label for="name">Nome</label>
+        <input type="text" id="name" name="name" placeholder="Seu nome completo" required>
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Telefone</label>
+        <input type="tel" id="phone" name="phone" placeholder="(00) 00000-0000" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Mensagem</label>
+        <textarea id="message" name="message" placeholder="Conte seu objetivo..." required></textarea>
+      </div>
+      <button type="submit" class="btn">Enviar Mensagem</button>
+      <div class="form-success" id="formSuccess">Mensagem enviada com sucesso! Em breve entrarei em contato.</div>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">RAFAEL<span>KARKARA</span></div>
+        <p>Personal trainer dedicado a transformar corpos e vidas através do treinamento físico personalizado.</p>
+        <div class="social-links" style="margin-top:20px;">
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+          <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" aria-label="WhatsApp">📲</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#hero">Início</a></li>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#services">Serviços</a></li>
+          <li><a href="#results">Resultados</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="mailto:contato@rafaelkarkara.com">contato@rafaelkarkara.com</a></li>
+          <li><a href="tel:+5511999999999">(11) 99999-9999</a></li>
+          <li><a href="#">São Paulo, SP</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Rafael Karkara. Todos os direitos reservados. Feito com <span>♥</span> e muito treino.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5511999999999" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contato via WhatsApp">📲</a>
+
+<script>
+  // Menu mobile toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+    });
+  });
+
+  // Scroll reveal animation
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealEls.forEach(el => observer.observe(el));
+
+  // Header background on scroll
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      header.style.boxShadow = '0 4px 20px rgba(0,0,0,.4)';
+    } else {
+      header.style.boxShadow = 'none';
+    }
+  });
+
+  // Contact form (front-end only demo)
+  const contactForm = document.getElementById('contactForm');
+  const formSuccess = document.getElementById('formSuccess');
+
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    formSuccess.classList.add('show');
+    contactForm.reset();
+    setTimeout(() => formSuccess.classList.remove('show'), 5000);
+  });
+</script>
+
+</body>
+</html>
